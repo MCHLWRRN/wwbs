@@ -20,12 +20,13 @@
 				</div>
 			<% end %>
   	</div>
-  	<div class="col-xs-4 slogan">
+  	<div class="col-sm-4 hidden-xs slogan">
   		What Would Bayliss Say?
   	</div>
-  	<div class="col-xs-5 links">
+  	<div class="col-xs-8 col-xs-offset-1 col-sm-offset-0 col-sm-5 links">
 	    <!-- Button trigger modal -->
 			<%= link_to 'Contribute', '#', :data => {:toggle => 'modal', :target => '#myModal'} %>
+			&nbsp;&nbsp;
   		<%= link_to 'About', about_path %>
   	</div>
   </header>
@@ -40,8 +41,9 @@
         </div>
         <%= simple_form_for Quote.new do |f| %>
 	        <div class="modal-body">
-	          	<%= f.input :lyric %>
-	          	<%= f.input :song %>
+	          	<%= f.input :lyric, :label => "What is the Bayliss lyric you want to add?", :placeholder => "The only certain thing is changes." %>
+	          	<br />
+	          	<%= f.input :song, :label => "What song is it from?", :placeholder => 'Final Word' %>
 	          	<br />
 	        </div>
         <div class="modal-footer">
@@ -60,7 +62,7 @@
   <div class="container">
   	<% if flash[:error].present? %>
   		<div class="col-xs-offset-1 alert alert-danger">
-  			<%= flash[:error].html_safe %>
+			<%= flash[:error].html_safe %>
   		</div>
 		<% end %>
 		<%= yield %>
@@ -68,10 +70,10 @@
 
 	<div class="footer">
 		<div class="container">
-			<div class="col-xs-6">
+			<div class="col-xs-12 col-sm-6">
 				<%= link_to "This isn't enough, I need more Bayliss!", root_path, :class => 'next-quote' %>
 			</div>
-			<div class="col-xs-6 footer-blurb">
+			<div class="col-xs-12 col-sm-6 footer-blurb">
 				Spawned in the People's Republic of Portland
 			</div>
 		</div>
